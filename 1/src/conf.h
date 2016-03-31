@@ -1,0 +1,10 @@
+#ifndef CONF_H
+#define CONF_H
+
+#define NUM_FRAMES 128
+#define NUM_PAGES 256
+#define PAGE_FRAME_SIZE 256
+#define TLB_NUM_ENTRIES 16
+#define PHYSICAL_MEMORY_SIZE (NUM_FRAMES * PAGE_FRAME_SIZE)
+
+#endif
