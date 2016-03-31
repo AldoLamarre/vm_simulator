@@ -32,7 +32,10 @@ format: $(DEPS)
 
 OBJ = $(patsubst %.c,$(BUILD_DIR)/obj/%.o, $(DEPS))
 
-$(BUILD_DIR)/obj/%.o: %.c $(DEPS)
+$(BUILD_DIR)/obj:
+	mkdir -p $@
+
+$(BUILD_DIR)/obj/%.o: %.c $(DEPS) $(BUILD_DIR)/obj
 	$(CC) -c $(CFLAGS) -o $@ $< 
 
 $(BUILD_DIR)/vm: $(OBJ)

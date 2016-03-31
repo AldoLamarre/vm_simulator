@@ -11,7 +11,7 @@ DEPS=y.tab.c lex.yy.c vmm.c common.c physical_memory.c tlb.c
 
 BUILD_DIR=../build
 
-.PHONY: default all clean format release
+.PHONY: default all clean release
 
 default: $(BUILD_DIR)/vm
 
@@ -32,7 +32,10 @@ format: $(DEPS)
 
 OBJ = $(patsubst %.c,$(BUILD_DIR)/obj/%.o, $(DEPS))
 
-$(BUILD_DIR)/obj/%.o: %.c $(DEPS)
+$(BUILD_DIR)/obj:
+	mkdir -p $@
+
+$(BUILD_DIR)/obj/%.o: %.c $(DEPS) $(BUILD_DIR)/obj
 	$(CC) -c $(CFLAGS) -o $@ $< 
 
 $(BUILD_DIR)/vm: $(OBJ)
