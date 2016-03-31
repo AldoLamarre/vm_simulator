@@ -1,6 +1,8 @@
 
 
-.PHONY: clean format release rapport
+.PHONY: clean release rapport
+
+all: clean release
 
 format: $(DEPS)
 	cd 1/src/ && make format
@@ -9,7 +11,7 @@ format: $(DEPS)
 rapport: rapport.tex
 	pdflatex rapport.tex
 
-release: rapport clean format
+release: rapport clean
 	tar -czvf ../tp3.tar.gz .
 
 clean:

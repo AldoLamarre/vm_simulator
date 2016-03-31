@@ -1,2 +1,5 @@
 1/build/
 2/build/
+y.tab.h
+y.tab.c
+lex.yy.c
