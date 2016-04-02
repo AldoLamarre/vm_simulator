@@ -43,6 +43,11 @@ int32_t
 tlb_lookup (struct tlb *tlb, uint16_t page_number)
 {
   // Complétez cette fonction.
+	for(int i=0;i<TLB_NUM_ENTRIES; i++){
+		if(tlb->entries->page_number == page_number)
+			return tlb->entries->frame_number;
+	}
+	return -1;
 }
 
 // Ajoute une entré dans le tlb. Pour bien mettre en oeuvre
@@ -52,4 +57,11 @@ void
 tlb_add_entry (struct tlb *tlb, uint16_t page_number, uint16_t frame_number)
 {
   // Complétez cette fonction.
+  struct tlb_entry *currentEntry = tlb->entries+tlb->next_entry_available;
+  
+  currentEntry->page_number = page_number;
+  currentEntry->frame_number = frame_number;
+  
+  tlb->next_entry_available = (tlb->next_entry_available + 1) % 16;
+  
 }

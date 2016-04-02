@@ -69,10 +69,44 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 {
 
   /* Complétez */
-
+	uint8_t pagenumber = (uint8_t) ((laddress >> 8) & 0xff);
+	uint8_t offset = (uint8_t) (laddress & 0xff);
+	int32_t framenumber;
+  /*
+	1) try look in tlb
+		write in pagetable
+	2) try look in pagetable//physical memory
+		write
+	3) load from backing_store
+		write
+	traduire physique a logique
+  */
+	
+	framenumber = tlb_lookup(&vmm->tlb,pagenumber);	
+	if(framenumber == -1){
+		vmm->tlb_miss_count++;
+		framenumber = vmm->page_table[pagenumber].frame_number;
+		if(framenumber==-1){
+			vmm->page_fault_count++;
+			framenumber=pm_demand_page(&vmm->pm,pagenumber );
+			if(framenumber==-1){
+				vmm->page_fault_count++;
+			}
+		}else{			
+			vmm->page_found_count++;
+			vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] = c;
+		}	
+	}else{
+		vmm->tlb_hit_count++;
+		vmm->page_found_count++;
+		vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] = c;
+	}
+	
+	
   // Vous devez fournir les arguments manquants. Basez-vous sur la signature de
   // la fonction.
-  vmm_log_command (stdout, "WRITING", laddress, 0, 0, 0, 0, c);
+  vmm_log_command (stdout, "WRITING", laddress, pagenumber, framenumber
+	, offset, pagenumber*PAGE_FRAME_SIZE+offset , c);
 }
 
 
