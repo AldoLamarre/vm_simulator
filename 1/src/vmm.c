@@ -55,12 +55,51 @@ vmm_log_command (FILE * out, const char *command, uint16_t laddress,	/* logical 
 void
 vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 {
-
+	char c;
+	int32_t framenumber;
+	uint8_t pagenumber = (uint8_t) ((laddress >> 8) & 0xff);
+	uint8_t offset = (uint8_t) (laddress & 0xff);	
   /* Complétez */
-
+	framenumber = tlb_lookup(&vmm->tlb,pagenumber);	
+	if(framenumber == -1){
+		vmm->tlb_miss_count++;
+		framenumber = vmm->page_table[pagenumber].frame_number;
+		if(framenumber==-1){
+			vmm->page_fault_count++;
+			framenumber=pm_demand_page(&vmm->pm,pagenumber );
+			if(framenumber==-1){
+				//vmm->page_fault_count++;
+			}else{
+				c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset]; 
+				
+				vmm->page_table[pagenumber].frame_number=framenumber;
+				vmm->page_table[pagenumber].flags|=dirty;
+				tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
+				
+			}
+		}else{			
+			vmm->page_found_count++;
+			c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset];
+			
+			vmm->page_table[pagenumber].frame_number=framenumber;
+			vmm->page_table[pagenumber].flags|=dirty;
+			tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
+			
+		}	
+	}else{
+		vmm->tlb_hit_count++;
+		vmm->page_found_count++;
+		
+		vmm->page_table[pagenumber].frame_number=framenumber;
+		vmm->page_table[pagenumber].flags|=dirty;
+				
+		
+		c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] ;
+	}
   // Vous devez fournir les arguments manquants. Basez-vous sur la signature de
   // la fonction.
-  vmm_log_command (stdout, "READING", laddress, 0, 0, 0, 0, '0');
+  vmm_log_command (stdout, "READING", laddress, pagenumber, framenumber
+	, offset, pagenumber*PAGE_FRAME_SIZE+offset , c);
 }
 
 /* Effectue une écriture à l'adresse logique `laddress` */
@@ -68,10 +107,10 @@ void
 vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 {
 
+	int32_t framenumber;
   /* Complétez */
 	uint8_t pagenumber = (uint8_t) ((laddress >> 8) & 0xff);
 	uint8_t offset = (uint8_t) (laddress & 0xff);
-	int32_t framenumber;
   /*
 	1) try look in tlb
 		write in pagetable
@@ -88,20 +127,18 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 		framenumber = vmm->page_table[pagenumber].frame_number;
 		if(framenumber==-1){
 			vmm->page_fault_count++;
-			framenumber=pm_demand_page(&vmm->pm,pagenumber );
-			if(framenumber==-1){
-				vmm->page_fault_count++;
-			}
+			framenumber=pm_demand_page(&vmm->pm,pagenumber );			
+			vmm->page_table[pagenumber].frame_number=framenumber;			
 		}else{			
-			vmm->page_found_count++;
-			vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] = c;
-		}	
+			vmm->page_found_count++;			
+		}		
+		tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
 	}else{
 		vmm->tlb_hit_count++;
-		vmm->page_found_count++;
-		vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] = c;
+		vmm->page_found_count++;	
 	}
-	
+	vmm->page_table[pagenumber].flags|=dirty;
+	vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] = c;
 	
   // Vous devez fournir les arguments manquants. Basez-vous sur la signature de
   // la fonction.

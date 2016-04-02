@@ -24,7 +24,7 @@ pm_find_free_frame (struct physical_memory *pm)
   for (unsigned int i = 0; i < PHYSICAL_MEMORY_SIZE; i+=PAGE_FRAME_SIZE)
     {
       if (pm->memory[i] == ' '){//mettre la bonne condition
-		return i ;
+		return i%PAGE_FRAME_SIZE ;
 	  }
     }
 	return -1;
@@ -35,18 +35,18 @@ uint16_t
 pm_demand_page (struct physical_memory *pm, uint16_t page_number)
 {	
 	int r = 0;
-	if(page_number > NUM_PAGES){
-	 return -1;
-	}
+	//if(page_number > NUM_PAGES){
+	// return -1;
+	//}
 	uint16_t free_frame = pm_find_free_frame(pm);
 	r = fseek( pm->backing_store, page_number*PAGE_FRAME_SIZE, SEEK_SET );
-	if (r)
-		return -1;	
+	//if (r)
+	//	return -1;	
 	r = fread( pm->memory+free_frame, sizeof(char),
 		PAGE_FRAME_SIZE, pm->backing_store);
-	if (r == PAGE_FRAME_SIZE )
+	//if (r == PAGE_FRAME_SIZE )
 		return free_frame;
-	return -1;		
+	//return -1;		
 }
 
 // Sauvegarde la page spécifiée
