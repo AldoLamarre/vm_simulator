@@ -1,0 +1,589 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_MOD_BY	Bostjan Mihoric	/ccompletion@gmail.com/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	/unofficial modification/
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	/unofficial modification/
+BEGIN	lex.yy.c	125;"	macro	file:
+COMMON_H	common.h	2;"	macro
+CONF_H	conf.h	2;"	macro
+ECHO	lex.yy.c	560;"	macro	file:
+ECHO	lex.yy.c	818;"	variable
+EOB_ACT_CONTINUE_SCAN	lex.yy.c	165;"	macro	file:
+EOB_ACT_END_OF_FILE	lex.yy.c	166;"	macro	file:
+EOB_ACT_LAST_MATCH	lex.yy.c	167;"	macro	file:
+EXIT_SUCCESS	y.tab.c	319;"	macro	file:
+EXIT_SUCCESS	y.tab.c	347;"	macro	file:
+FLEXINT_H	lex.yy.c	29;"	macro	file:
+FLEX_BETA	lex.yy.c	13;"	macro	file:
+FLEX_SCANNER	lex.yy.c	8;"	macro	file:
+INITIAL	lex.yy.c	473;"	macro	file:
+INT16_MAX	lex.yy.c	71;"	macro	file:
+INT16_MIN	lex.yy.c	62;"	macro	file:
+INT32_MAX	lex.yy.c	74;"	macro	file:
+INT32_MIN	lex.yy.c	65;"	macro	file:
+INT8_MAX	lex.yy.c	68;"	macro	file:
+INT8_MIN	lex.yy.c	59;"	macro	file:
+NUM_FRAMES	conf.h	4;"	macro
+NUM_PAGES	conf.h	5;"	macro
+PAGE_FRAME_SIZE	conf.h	6;"	macro
+PHYSICAL_MEMORY_H	physical_memory.h	2;"	macro
+PHYSICAL_MEMORY_SIZE	conf.h	8;"	macro
+REJECT	lex.yy.c	458;"	macro	file:
+TLB_H	tlb.h	2;"	macro
+TLB_NUM_ENTRIES	conf.h	7;"	macro
+UINT16_MAX	lex.yy.c	80;"	macro	file:
+UINT32_MAX	lex.yy.c	83;"	macro	file:
+UINT8_MAX	lex.yy.c	77;"	macro	file:
+VMM_H	vmm.h	2;"	macro
+YYABORT	y.tab.c	590;"	macro	file:
+YYACCEPT	y.tab.c	589;"	macro	file:
+YYBACKUP	y.tab.c	596;"	macro	file:	funlike:
+YYBISON	y.tab.c	44;"	macro	file:
+YYBISON_VERSION	y.tab.c	47;"	macro	file:
+YYCASE_	y.tab.c	937;"	macro	file:	funlike:
+YYCASE_	y.tab.c	947;"	macro	file:
+YYCOPY	y.tab.c	411;"	macro	file:	funlike:
+YYCOPY	y.tab.c	414;"	macro	file:	funlike:
+YYCOPY_NEEDED	y.tab.c	386;"	macro	file:
+YYDEBUG	y.tab.c	133;"	macro	file:
+YYDEBUG	y.tab.h	37;"	macro
+YYDPRINTF	y.tab.c	627;"	macro	file:	funlike:
+YYDPRINTF	y.tab.c	742;"	macro	file:	funlike:
+YYEMPTY	y.tab.c	586;"	macro	file:
+YYEOF	y.tab.c	587;"	macro	file:
+YYERRCODE	y.tab.c	615;"	macro	file:
+YYERROR	y.tab.c	591;"	macro	file:
+YYERROR_VERBOSE	y.tab.c	121;"	macro	file:
+YYERROR_VERBOSE	y.tab.c	122;"	macro	file:
+YYERROR_VERBOSE	y.tab.c	124;"	macro	file:
+YYERROR_VERBOSE_ARGS_MAXIMUM	y.tab.c	866;"	enumerator	enum:__anon1	file:
+YYFINAL	y.tab.c	427;"	macro	file:
+YYFPRINTF	y.tab.c	624;"	macro	file:
+YYFREE	y.tab.c	357;"	macro	file:
+YYINITDEPTH	y.tab.c	751;"	macro	file:
+YYLAST	y.tab.c	429;"	macro	file:
+YYMALLOC	y.tab.c	351;"	macro	file:
+YYMAXDEPTH	y.tab.c	762;"	macro	file:
+YYMAXUTOK	y.tab.c	443;"	macro	file:
+YYNNTS	y.tab.c	434;"	macro	file:
+YYNRULES	y.tab.c	436;"	macro	file:
+YYNSTATES	y.tab.c	438;"	macro	file:
+YYNTOKENS	y.tab.c	432;"	macro	file:
+YYPACT_NINF	y.tab.c	509;"	macro	file:
+YYPOPSTACK	y.tab.c	1062;"	macro	file:	funlike:
+YYPULL	y.tab.c	59;"	macro	file:
+YYPURE	y.tab.c	53;"	macro	file:
+YYPUSH	y.tab.c	56;"	macro	file:
+YYRECOVERING	y.tab.c	594;"	macro	file:	funlike:
+YYSIZE_MAXIMUM	y.tab.c	230;"	macro	file:
+YYSIZE_T	y.tab.c	219;"	macro	file:
+YYSIZE_T	y.tab.c	221;"	macro	file:
+YYSIZE_T	y.tab.c	224;"	macro	file:
+YYSIZE_T	y.tab.c	226;"	macro	file:
+YYSKELETON_NAME	y.tab.c	50;"	macro	file:
+YYSTACK_ALLOC	y.tab.c	305;"	macro	file:
+YYSTACK_ALLOC	y.tab.c	309;"	macro	file:
+YYSTACK_ALLOC	y.tab.c	314;"	macro	file:
+YYSTACK_ALLOC	y.tab.c	337;"	macro	file:
+YYSTACK_ALLOC_MAXIMUM	y.tab.c	334;"	macro	file:
+YYSTACK_ALLOC_MAXIMUM	y.tab.c	340;"	macro	file:
+YYSTACK_BYTES	y.tab.c	382;"	macro	file:	funlike:
+YYSTACK_FREE	y.tab.c	328;"	macro	file:	funlike:
+YYSTACK_FREE	y.tab.c	338;"	macro	file:
+YYSTACK_GAP_MAXIMUM	y.tab.c	378;"	macro	file:
+YYSTACK_RELOCATE	y.tab.c	393;"	macro	file:	funlike:
+YYSTATE	lex.yy.c	132;"	macro	file:
+YYSTYPE	y.tab.c	163;"	union	file:
+YYSTYPE	y.tab.c	173;"	typedef	file:
+YYSTYPE	y.tab.h	67;"	union
+YYSTYPE	y.tab.h	77;"	typedef
+YYSTYPE_IS_DECLARED	y.tab.c	175;"	macro	file:
+YYSTYPE_IS_DECLARED	y.tab.h	79;"	macro
+YYSTYPE_IS_TRIVIAL	y.tab.c	174;"	macro	file:
+YYSTYPE_IS_TRIVIAL	y.tab.h	78;"	macro
+YYSYNTAX_ERROR	y.tab.c	1330;"	macro	file:
+YYSYNTAX_ERROR	y.tab.c	1359;"	macro	file:
+YYTABLES_NAME	lex.yy.c	1813;"	macro	file:
+YYTABLE_NINF	y.tab.c	514;"	macro	file:
+YYTERROR	y.tab.c	614;"	macro	file:
+YYTOKENTYPE	y.tab.c	141;"	macro	file:
+YYTOKENTYPE	y.tab.h	45;"	macro
+YYTRANSLATE	y.tab.c	445;"	macro	file:	funlike:
+YYUNDEFTOK	y.tab.c	442;"	macro	file:
+YYUSE	y.tab.c	1001;"	prototype	file:
+YYUSE	y.tab.c	273;"	macro	file:	funlike:
+YYUSE	y.tab.c	275;"	macro	file:	funlike:
+YY_	y.tab.c	236;"	macro	file:	funlike:
+YY_	y.tab.c	240;"	macro	file:	funlike:
+YY_ATTRIBUTE	y.tab.c	248;"	macro	file:	funlike:
+YY_ATTRIBUTE	y.tab.c	250;"	macro	file:	funlike:
+YY_ATTRIBUTE_PURE	y.tab.c	255;"	macro	file:
+YY_ATTRIBUTE_UNUSED	y.tab.c	259;"	macro	file:
+YY_AT_BOL	lex.yy.c	332;"	macro	file:	funlike:
+YY_BREAK	lex.yy.c	639;"	macro	file:
+YY_BUFFER_EOF_PENDING	lex.yy.c	248;"	macro	file:
+YY_BUFFER_NEW	lex.yy.c	236;"	macro	file:
+YY_BUFFER_NORMAL	lex.yy.c	237;"	macro	file:
+YY_BUFFER_STATE	lex.yy.c	153;"	typedef	file:
+YY_BUF_SIZE	lex.yy.c	144;"	macro	file:
+YY_CHAR	lex.yy.c	339;"	typedef	file:
+YY_CURRENT_BUFFER	lex.yy.c	264;"	macro	file:
+YY_CURRENT_BUFFER_LVALUE	lex.yy.c	271;"	macro	file:
+YY_DECL	lex.yy.c	627;"	macro	file:
+YY_DECL_IS_OURS	lex.yy.c	623;"	macro	file:
+YY_DO_BEFORE_ACTION	lex.yy.c	360;"	macro	file:
+YY_END_OF_BUFFER	lex.yy.c	368;"	macro	file:
+YY_END_OF_BUFFER_CHAR	lex.yy.c	140;"	macro	file:
+YY_EXIT_FAILURE	lex.yy.c	1611;"	macro	file:
+YY_EXTRA_TYPE	lex.yy.c	484;"	macro	file:
+YY_FATAL_ERROR	lex.yy.c	614;"	macro	file:	funlike:
+YY_FLEX_MAJOR_VERSION	lex.yy.c	9;"	macro	file:
+YY_FLEX_MINOR_VERSION	lex.yy.c	10;"	macro	file:
+YY_FLEX_SUBMINOR_VERSION	lex.yy.c	11;"	macro	file:
+YY_FLUSH_BUFFER	lex.yy.c	300;"	macro	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN	y.tab.c	280;"	macro	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN	y.tab.c	290;"	macro	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_END	y.tab.c	284;"	macro	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_END	y.tab.c	291;"	macro	file:
+YY_INITIAL_VALUE	y.tab.c	287;"	macro	file:	funlike:
+YY_INITIAL_VALUE	y.tab.c	294;"	macro	file:	funlike:
+YY_INPUT	lex.yy.c	567;"	macro	file:	funlike:
+YY_INT_ALIGNED	lex.yy.c	4;"	macro	file:
+YY_LESS_LINENO	lex.yy.c	169;"	macro	file:	funlike:
+YY_LINENO_REWIND_TO	lex.yy.c	170;"	macro	file:	funlike:
+YY_LOCATION_PRINT	y.tab.c	635;"	macro	file:	funlike:
+YY_MORE_ADJ	lex.yy.c	460;"	macro	file:
+YY_NEW_FILE	lex.yy.c	138;"	macro	file:
+YY_NULL	lex.yy.c	112;"	macro	file:
+YY_NULLPTR	y.tab.c	113;"	macro	file:
+YY_NULLPTR	y.tab.c	115;"	macro	file:
+YY_NUM_RULES	lex.yy.c	367;"	macro	file:
+YY_READ_BUF_SIZE	lex.yy.c	552;"	macro	file:
+YY_REDUCE_PRINT	y.tab.c	732;"	macro	file:	funlike:
+YY_REDUCE_PRINT	y.tab.c	745;"	macro	file:	funlike:
+YY_RESTORE_YY_MORE_OFFSET	lex.yy.c	461;"	macro	file:
+YY_RULE_SETUP	lex.yy.c	642;"	macro	file:
+YY_SC_TO_UI	lex.yy.c	119;"	macro	file:	funlike:
+YY_SKIP_YYWRAP	lex.yy.c	337;"	macro	file:
+YY_STACK_PRINT	y.tab.c	701;"	macro	file:	funlike:
+YY_STACK_PRINT	y.tab.c	744;"	macro	file:	funlike:
+YY_START	lex.yy.c	131;"	macro	file:
+YY_START_STACK_INCR	lex.yy.c	609;"	macro	file:
+YY_STATE_BUF_SIZE	lex.yy.c	149;"	macro	file:
+YY_STATE_EOF	lex.yy.c	135;"	macro	file:	funlike:
+YY_STATE_EOF	lex.yy.c	821;"	prototype	file:
+YY_STRUCT_YY_BUFFER_STATE	lex.yy.c	189;"	macro	file:
+YY_SYMBOL_PRINT	y.tab.c	639;"	macro	file:	funlike:
+YY_SYMBOL_PRINT	y.tab.c	743;"	macro	file:	funlike:
+YY_TYPEDEF_YY_BUFFER_STATE	lex.yy.c	152;"	macro	file:
+YY_TYPEDEF_YY_SIZE_T	lex.yy.c	157;"	macro	file:
+YY_USER_ACTION	lex.yy.c	634;"	macro	file:
+YY_USE_CONST	lex.yy.c	100;"	macro	file:
+YY_USE_CONST	lex.yy.c	93;"	macro	file:
+YY_YY_Y_TAB_H_INCLUDED	y.tab.c	130;"	macro	file:
+YY_YY_Y_TAB_H_INCLUDED	y.tab.h	34;"	macro
+_Noreturn	y.tab.c	265;"	macro	file:
+_Noreturn	y.tab.c	267;"	macro	file:
+__STDC_LIMIT_MACROS	lex.yy.c	39;"	macro	file:
+alloca	y.tab.c	312;"	macro	file:
+b	lex.yy.c	1014;"	local
+b	lex.yy.c	1330;"	local
+b	lex.yy.c	1532;"	local
+b	lex.yy.c	1582;"	local
+backing_store	physical_memory.h	10;"	member	struct:physical_memory
+backstore	y.tab.c	1530;"	local
+buf	lex.yy.c	1583;"	local
+c	lex.yy.c	1195;"	local
+command	command.y	72;"	label
+commands_list	command.y	66;"	label
+cvalue	y.tab.c	168;"	member	union:YYSTYPE	file:
+cvalue	y.tab.h	72;"	member	union:YYSTYPE
+dest	lex.yy.c	1163;"	local
+dest	lex.yy.c	963;"	local
+dirty	vmm.h	15;"	enumerator	enum:page_flags
+entries	tlb.h	15;"	member	struct:tlb
+error	common.c	11;"	function
+error	common.h	8;"	prototype
+flags	vmm.h	20;"	member	struct:page
+flex_int16_t	lex.yy.c	45;"	typedef	file:
+flex_int16_t	lex.yy.c	51;"	typedef	file:
+flex_int32_t	lex.yy.c	47;"	typedef	file:
+flex_int32_t	lex.yy.c	52;"	typedef	file:
+flex_int8_t	lex.yy.c	43;"	typedef	file:
+flex_int8_t	lex.yy.c	50;"	typedef	file:
+flex_uint16_t	lex.yy.c	46;"	typedef	file:
+flex_uint16_t	lex.yy.c	54;"	typedef	file:
+flex_uint32_t	lex.yy.c	48;"	typedef	file:
+flex_uint32_t	lex.yy.c	55;"	typedef	file:
+flex_uint8_t	lex.yy.c	44;"	typedef	file:
+flex_uint8_t	lex.yy.c	53;"	typedef	file:
+frame_number	tlb.h	9;"	member	struct:tlb_entry
+frame_number	vmm.h	21;"	member	struct:page
+free	y.tab.c	359;"	prototype	file:
+free_frame	physical_memory.c	41;"	local
+grow_size	lex.yy.c	1508;"	local
+i	lex.yy.c	1585;"	local
+i	lex.yy.c	1774;"	local
+i	lex.yy.c	965;"	local
+i16	lex.yy.c	766;"	variable
+i32	lex.yy.c	765;"	variable
+input	lex.yy.c	545;"	prototype	file:
+ivalue	y.tab.c	167;"	member	union:YYSTYPE	file:
+ivalue	y.tab.h	71;"	member	union:YYSTYPE
+log	physical_memory.h	11;"	member	struct:physical_memory
+log	tlb.h	14;"	member	struct:tlb
+log	vmm.h	36;"	member	struct:virtual_memory_manager
+main	y.tab.c	1525;"	function
+malloc	y.tab.c	353;"	prototype	file:
+memory	physical_memory.h	12;"	member	struct:physical_memory
+n	lex.yy.c	1584;"	local
+n	lex.yy.c	1783;"	local
+new	common.h	6;"	macro	funlike:
+new_size	lex.yy.c	1021;"	local
+new_size	lex.yy.c	1078;"	local
+next_entry_available	tlb.h	16;"	member	struct:tlb
+num_to_alloc	lex.yy.c	1483;"	local
+num_to_read	lex.yy.c	1007;"	local
+number_to_move	lex.yy.c	1162;"	local
+number_to_move	lex.yy.c	965;"	local
+oerrno	lex.yy.c	1378;"	local
+offset	lex.yy.c	1211;"	local
+offset	vmm.c	73;"	local
+opt	y.tab.c	1532;"	local
+page	vmm.h	18;"	struct
+page_fault_count	vmm.h	26;"	member	struct:virtual_memory_manager
+page_flags	vmm.h	12;"	enum
+page_found_count	vmm.h	27;"	member	struct:virtual_memory_manager
+page_number	tlb.h	8;"	member	struct:tlb_entry
+page_table	vmm.h	31;"	member	struct:virtual_memory_manager
+pagenumber	vmm.c	72;"	local
+physical_memory	physical_memory.h	8;"	struct
+pm	vmm.h	34;"	member	struct:virtual_memory_manager
+pm_backup_frame	physical_memory.c	54;"	function
+pm_backup_page	physical_memory.h	19;"	prototype
+pm_clean	physical_memory.c	64;"	function
+pm_clean	physical_memory.h	20;"	prototype
+pm_demand_page	physical_memory.c	35;"	function
+pm_demand_page	physical_memory.h	18;"	prototype
+pm_find_free_frame	physical_memory.c	22;"	function
+pm_find_free_frame	physical_memory.h	17;"	prototype
+pm_init	physical_memory.c	9;"	function
+pm_init	physical_memory.h	16;"	prototype
+pm_log	y.tab.c	1527;"	local
+r	physical_memory.c	37;"	local
+recovering	y.tab.c	102;"	variable
+ret_val	lex.yy.c	966;"	local
+short	y.tab.c	190;"	macro	file:
+source	lex.yy.c	1165;"	local
+source	lex.yy.c	964;"	local
+start	command.y	64;"	label
+str	lex.yy.c	808;"	variable
+str	lex.yy.c	810;"	variable
+tADDRESS	y.tab.c	148;"	enumerator	enum:yytokentype	file:
+tADDRESS	y.tab.c	157;"	macro	file:
+tADDRESS	y.tab.h	52;"	enumerator	enum:yytokentype
+tADDRESS	y.tab.h	61;"	macro
+tCHAR	y.tab.c	149;"	enumerator	enum:yytokentype	file:
+tCHAR	y.tab.c	158;"	macro	file:
+tCHAR	y.tab.h	53;"	enumerator	enum:yytokentype
+tCHAR	y.tab.h	62;"	macro
+tEND	y.tab.c	147;"	enumerator	enum:yytokentype	file:
+tEND	y.tab.c	156;"	macro	file:
+tEND	y.tab.h	51;"	enumerator	enum:yytokentype
+tEND	y.tab.h	60;"	macro
+tERROR	y.tab.c	146;"	enumerator	enum:yytokentype	file:
+tERROR	y.tab.c	155;"	macro	file:
+tERROR	y.tab.h	50;"	enumerator	enum:yytokentype
+tERROR	y.tab.h	59;"	macro
+tREAD	y.tab.c	144;"	enumerator	enum:yytokentype	file:
+tREAD	y.tab.c	153;"	macro	file:
+tREAD	y.tab.h	48;"	enumerator	enum:yytokentype
+tREAD	y.tab.h	57;"	macro
+tWRITE	y.tab.c	145;"	enumerator	enum:yytokentype	file:
+tWRITE	y.tab.c	154;"	macro	file:
+tWRITE	y.tab.h	49;"	enumerator	enum:yytokentype
+tWRITE	y.tab.h	58;"	macro
+tlb	tlb.h	12;"	struct
+tlb	vmm.h	33;"	member	struct:virtual_memory_manager
+tlb_add_entry	tlb.c	52;"	function
+tlb_add_entry	tlb.h	22;"	prototype
+tlb_clean	tlb.c	24;"	function
+tlb_clean	tlb.h	20;"	prototype
+tlb_entry	tlb.h	6;"	struct
+tlb_hit_count	vmm.h	28;"	member	struct:virtual_memory_manager
+tlb_init	tlb.c	9;"	function
+tlb_init	tlb.h	19;"	prototype
+tlb_log	y.tab.c	1528;"	local
+tlb_lookup	tlb.c	43;"	function
+tlb_lookup	tlb.h	21;"	prototype
+tlb_miss_count	vmm.h	29;"	member	struct:virtual_memory_manager
+unput	lex.yy.c	186;"	macro	file:	funlike:
+usage	y.tab.c	79;"	variable
+valist	common.c	13;"	local
+verification	vmm.h	14;"	enumerator	enum:page_flags
+virtual_memory_manager	vmm.h	24;"	struct
+vmm	y.tab.c	77;"	variable
+vmm_clean	vmm.c	83;"	function
+vmm_clean	vmm.h	42;"	prototype
+vmm_init	vmm.c	14;"	function
+vmm_init	vmm.h	39;"	prototype
+vmm_log	y.tab.c	1529;"	local
+vmm_log_command	vmm.c	43;"	function
+vmm_read	vmm.c	56;"	function
+vmm_read	vmm.h	40;"	prototype
+vmm_write	vmm.c	68;"	function
+vmm_write	vmm.h	41;"	prototype
+yy_accept	lex.yy.c	376;"	variable	file:
+yy_act	lex.yy.c	651;"	variable
+yy_amount_of_matched_text	lex.yy.c	827;"	variable
+yy_at_bol	lex.yy.c	224;"	member	struct:yy_buffer_state	file:
+yy_base	lex.yy.c	419;"	variable	file:
+yy_bp	lex.yy.c	650;"	variable
+yy_bs_column	lex.yy.c	227;"	member	struct:yy_buffer_state	file:
+yy_bs_lineno	lex.yy.c	226;"	member	struct:yy_buffer_state	file:
+yy_buf_pos	lex.yy.c	195;"	member	struct:yy_buffer_state	file:
+yy_buf_size	lex.yy.c	200;"	member	struct:yy_buffer_state	file:
+yy_buffer_stack	lex.yy.c	256;"	variable	file:
+yy_buffer_stack_max	lex.yy.c	255;"	variable	file:
+yy_buffer_stack_top	lex.yy.c	254;"	variable	file:
+yy_buffer_state	lex.yy.c	190;"	struct	file:
+yy_buffer_status	lex.yy.c	234;"	member	struct:yy_buffer_state	file:
+yy_c	lex.yy.c	1104;"	local
+yy_c	lex.yy.c	1132;"	local
+yy_c	lex.yy.c	700;"	variable
+yy_c_buf_p	lex.yy.c	279;"	variable	file:
+yy_c_buf_p_offset	lex.yy.c	1016;"	local
+yy_ch_buf	lex.yy.c	194;"	member	struct:yy_buffer_state	file:
+yy_chk	lex.yy.c	441;"	variable	file:
+yy_cp	lex.yy.c	1098;"	local
+yy_cp	lex.yy.c	1130;"	local
+yy_cp	lex.yy.c	1152;"	local
+yy_cp	lex.yy.c	650;"	variable
+yy_create_buffer	lex.yy.c	1328;"	function
+yy_create_buffer	lex.yy.c	290;"	prototype	file:
+yy_current_state	lex.yy.c	1097;"	local
+yy_current_state	lex.yy.c	649;"	variable
+yy_def	lex.yy.c	426;"	variable	file:
+yy_delete_buffer	lex.yy.c	1356;"	function
+yy_delete_buffer	lex.yy.c	291;"	prototype	file:
+yy_did_buffer_switch_on_eof	lex.yy.c	286;"	variable	file:
+yy_ec	lex.yy.c	382;"	variable	file:
+yy_fatal_error	lex.yy.c	1614;"	function	file:
+yy_fatal_error	lex.yy.c	355;"	prototype	file:
+yy_fill_buffer	lex.yy.c	232;"	member	struct:yy_buffer_state	file:
+yy_flex_debug	lex.yy.c	453;"	variable
+yy_flex_strlen	lex.yy.c	1781;"	function	file:
+yy_flex_strlen	lex.yy.c	537;"	prototype	file:
+yy_flex_strncpy	lex.yy.c	1772;"	function	file:
+yy_flex_strncpy	lex.yy.c	533;"	prototype	file:
+yy_flush_buffer	lex.yy.c	1403;"	function
+yy_flush_buffer	lex.yy.c	292;"	prototype	file:
+yy_get_next_buffer	lex.yy.c	354;"	prototype	file:
+yy_get_next_buffer	lex.yy.c	961;"	function	file:
+yy_get_previous_state	lex.yy.c	1095;"	function	file:
+yy_get_previous_state	lex.yy.c	352;"	prototype	file:
+yy_hold_char	lex.yy.c	274;"	variable	file:
+yy_init	lex.yy.c	280;"	variable	file:
+yy_init_buffer	lex.yy.c	1375;"	function	file:
+yy_init_buffer	lex.yy.c	298;"	prototype	file:
+yy_init_globals	lex.yy.c	1717;"	function	file:
+yy_init_globals	lex.yy.c	487;"	prototype	file:
+yy_input_file	lex.yy.c	192;"	member	struct:yy_buffer_state	file:
+yy_is_interactive	lex.yy.c	218;"	member	struct:yy_buffer_state	file:
+yy_is_jam	lex.yy.c	1129;"	local
+yy_is_our_buffer	lex.yy.c	211;"	member	struct:yy_buffer_state	file:
+yy_last_accepting_cpos	lex.yy.c	450;"	variable	file:
+yy_last_accepting_state	lex.yy.c	449;"	variable	file:
+yy_load_buffer_state	lex.yy.c	1314;"	function	file:
+yy_load_buffer_state	lex.yy.c	297;"	prototype	file:
+yy_meta	lex.yy.c	414;"	variable	file:
+yy_n_chars	lex.yy.c	205;"	member	struct:yy_buffer_state	file:
+yy_n_chars	lex.yy.c	275;"	variable	file:
+yy_new_buffer	lex.yy.c	310;"	macro	file:
+yy_next_state	lex.yy.c	858;"	variable
+yy_nxt	lex.yy.c	374;"	member	struct:yy_trans_info	file:
+yy_nxt	lex.yy.c	433;"	variable	file:
+yy_reduce_print	y.tab.c	713;"	function	file:
+yy_scan_buffer	lex.yy.c	1530;"	function
+yy_scan_buffer	lex.yy.c	302;"	prototype	file:
+yy_scan_bytes	lex.yy.c	1580;"	function
+yy_scan_bytes	lex.yy.c	304;"	prototype	file:
+yy_scan_string	lex.yy.c	1567;"	function
+yy_scan_string	lex.yy.c	303;"	prototype	file:
+yy_set_bol	lex.yy.c	322;"	macro	file:	funlike:
+yy_set_interactive	lex.yy.c	312;"	macro	file:	funlike:
+yy_size_t	lex.yy.c	158;"	typedef	file:
+yy_stack_print	y.tab.c	690;"	function	file:
+yy_start	lex.yy.c	281;"	variable	file:
+yy_state_type	lex.yy.c	343;"	typedef	file:
+yy_switch_to_buffer	lex.yy.c	1283;"	function
+yy_switch_to_buffer	lex.yy.c	289;"	prototype	file:
+yy_symbol_print	y.tab.c	675;"	function	file:
+yy_symbol_value_print	y.tab.c	656;"	function	file:
+yy_trans_info	lex.yy.c	371;"	struct	file:
+yy_try_NUL_trans	lex.yy.c	1127;"	function	file:
+yy_try_NUL_trans	lex.yy.c	353;"	prototype	file:
+yy_verify	lex.yy.c	373;"	member	struct:yy_trans_info	file:
+yyalloc	lex.yy.c	1791;"	function
+yyalloc	lex.yy.c	306;"	prototype	file:
+yyalloc	y.tab.c	371;"	union	file:
+yyarg	y.tab.c	870;"	local
+yybot	y.tab.c	695;"	local
+yychar	y.tab.c	1009;"	variable
+yycheck	y.tab.c	557;"	variable	file:
+yychecklim	y.tab.c	909;"	local
+yyclearin	y.tab.c	585;"	macro	file:
+yyconst	lex.yy.c	106;"	macro	file:
+yyconst	lex.yy.c	108;"	macro	file:
+yycount	y.tab.c	873;"	local
+yyd	y.tab.c	793;"	local
+yydebug	y.tab.c	740;"	variable
+yydefact	y.tab.c	530;"	variable	file:
+yydefgoto	y.tab.c	543;"	variable	file:
+yydestruct	y.tab.c	993;"	function	file:
+yyensure_buffer_stack	lex.yy.c	1481;"	function	file:
+yyensure_buffer_stack	lex.yy.c	296;"	prototype	file:
+yyerrok	y.tab.c	584;"	macro	file:
+yyerror	lex.yy.c	468;"	prototype	file:
+yyerror	y.tab.c	106;"	prototype	file:
+yyerror	y.tab.c	1516;"	function
+yyerrorc	lex.yy.c	469;"	prototype	file:
+yyerrorc	y.tab.c	105;"	prototype	file:
+yyerrorc	y.tab.c	1508;"	function
+yyerrstatus	y.tab.c	1026;"	local
+yyformat	y.tab.c	868;"	local
+yyfree	lex.yy.c	1808;"	function
+yyfree	lex.yy.c	308;"	prototype	file:
+yyget_debug	lex.yy.c	1707;"	function
+yyget_debug	lex.yy.c	494;"	prototype	file:
+yyget_extra	lex.yy.c	498;"	prototype	file:
+yyget_in	lex.yy.c	1651;"	function
+yyget_in	lex.yy.c	502;"	prototype	file:
+yyget_leng	lex.yy.c	1667;"	function
+yyget_leng	lex.yy.c	510;"	prototype	file:
+yyget_lineno	lex.yy.c	1642;"	function
+yyget_lineno	lex.yy.c	514;"	prototype	file:
+yyget_out	lex.yy.c	1659;"	function
+yyget_out	lex.yy.c	506;"	prototype	file:
+yyget_text	lex.yy.c	1676;"	function
+yyget_text	lex.yy.c	512;"	prototype	file:
+yyi	y.tab.c	717;"	local
+yyi	y.tab.c	971;"	local
+yyin	lex.yy.c	341;"	variable
+yyinput	lex.yy.c	1189;"	function	file:
+yyinput	lex.yy.c	543;"	prototype	file:
+yylen	y.tab.c	1066;"	local
+yylen	y.tab.c	776;"	local
+yyleng	lex.yy.c	276;"	variable
+yyless	lex.yy.c	1622;"	macro	file:
+yyless	lex.yy.c	1623;"	macro	file:	funlike:
+yyless	lex.yy.c	173;"	macro	file:	funlike:
+yylex	lex.yy.c	625;"	prototype	file:
+yylex	y.tab.c	103;"	prototype	file:
+yylex_destroy	lex.yy.c	1746;"	function
+yylex_destroy	lex.yy.c	492;"	prototype	file:
+yylineno	lex.yy.c	347;"	variable
+yylno	y.tab.c	715;"	local
+yylval	y.tab.c	1012;"	variable
+yymore	lex.yy.c	459;"	macro	file:	funlike:
+yymsg	y.tab.c	1058;"	local
+yymsg_alloc	y.tab.c	1059;"	local
+yymsgbuf	y.tab.c	1057;"	local
+yymsgp	y.tab.c	1333;"	local
+yyn	y.tab.c	1047;"	local
+yyn	y.tab.c	817;"	local
+yyn	y.tab.c	900;"	local
+yynerrs	y.tab.c	1014;"	variable
+yynrhs	y.tab.c	716;"	local
+yyo	y.tab.c	658;"	local
+yyout	lex.yy.c	341;"	variable
+yyp	y.tab.c	818;"	local
+yyp	y.tab.c	970;"	local
+yypact	y.tab.c	521;"	variable	file:
+yypact_value_is_default	y.tab.c	511;"	macro	file:	funlike:
+yyparse	y.tab.c	1022;"	function
+yyparse	y.tab.c	181;"	prototype	file:
+yyparse	y.tab.h	85;"	prototype
+yypgoto	y.tab.c	537;"	variable	file:
+yypop_buffer_state	lex.yy.c	1462;"	function
+yypop_buffer_state	lex.yy.c	294;"	prototype	file:
+yypush_buffer_state	lex.yy.c	1432;"	function
+yypush_buffer_state	lex.yy.c	293;"	prototype	file:
+yyr1	y.tab.c	572;"	variable	file:
+yyr2	y.tab.c	578;"	variable	file:
+yyrealloc	lex.yy.c	1796;"	function
+yyrealloc	lex.yy.c	307;"	prototype	file:
+yyrestart	lex.yy.c	1266;"	function
+yyrestart	lex.yy.c	288;"	prototype	file:
+yyresult	y.tab.c	1048;"	local
+yyrline	y.tab.c	483;"	variable	file:
+yys	y.tab.c	794;"	local
+yyset_debug	lex.yy.c	1712;"	function
+yyset_debug	lex.yy.c	496;"	prototype	file:
+yyset_extra	lex.yy.c	500;"	prototype	file:
+yyset_in	lex.yy.c	1697;"	function
+yyset_in	lex.yy.c	504;"	prototype	file:
+yyset_lineno	lex.yy.c	1685;"	function
+yyset_lineno	lex.yy.c	516;"	prototype	file:
+yyset_out	lex.yy.c	1702;"	function
+yyset_out	lex.yy.c	508;"	prototype	file:
+yysize	y.tab.c	1094;"	local
+yysize	y.tab.c	865;"	local
+yysize0	y.tab.c	864;"	local
+yysize1	y.tab.c	925;"	local
+yysize1	y.tab.c	951;"	local
+yyss	y.tab.c	1037;"	local
+yyss1	y.tab.c	1102;"	local
+yyss_alloc	y.tab.c	373;"	member	union:yyalloc	file:
+yyssa	y.tab.c	1036;"	local
+yyssp	y.tab.c	1038;"	local
+yystacksize	y.tab.c	1045;"	local
+yystacksize	y.tab.c	1111;"	local
+yystate	y.tab.c	1024;"	local
+yystos	y.tab.c	565;"	variable	file:
+yystpcpy	y.tab.c	786;"	macro	file:
+yystpcpy	y.tab.c	791;"	function	file:
+yystrlen	y.tab.c	770;"	macro	file:
+yystrlen	y.tab.c	774;"	function	file:
+yysyntax_error	y.tab.c	861;"	function	file:
+yysyntax_error_status	y.tab.c	1334;"	local
+yytable	y.tab.c	551;"	variable	file:
+yytable_value_is_error	y.tab.c	516;"	macro	file:	funlike:
+yyterminate	lex.yy.c	604;"	macro	file:	funlike:
+yytext	lex.yy.c	462;"	variable
+yytext	lex.yy.c	804;"	variable
+yytext_ptr	lex.yy.c	350;"	macro	file:
+yytname	y.tab.c	492;"	variable	file:
+yytnamerr	y.tab.c	813;"	function	file:
+yytoken	y.tab.c	1050;"	local
+yytokentype	y.tab.c	142;"	enum	file:
+yytokentype	y.tab.h	46;"	enum
+yytoknum	y.tab.c	503;"	variable	file:
+yytranslate	y.tab.c	450;"	variable	file:
+yytype_int16	y.tab.c	212;"	typedef	file:
+yytype_int16	y.tab.c	214;"	typedef	file:
+yytype_int8	y.tab.c	200;"	typedef	file:
+yytype_int8	y.tab.c	202;"	typedef	file:
+yytype_uint16	y.tab.c	206;"	typedef	file:
+yytype_uint16	y.tab.c	208;"	typedef	file:
+yytype_uint8	y.tab.c	194;"	typedef	file:
+yytype_uint8	y.tab.c	196;"	typedef	file:
+yyunput	lex.yy.c	1150;"	function	file:
+yyunput	lex.yy.c	530;"	prototype	file:
+yyval	y.tab.c	1053;"	local
+yyvs	y.tab.c	1042;"	local
+yyvs1	y.tab.c	1101;"	local
+yyvs1	y.tab.c	1110;"	local
+yyvs_alloc	y.tab.c	374;"	member	union:yyalloc	file:
+yyvsa	y.tab.c	1041;"	local
+yyvsp	y.tab.c	1043;"	local
+yyvsp	y.tab.c	1219;"	local
+yyvsp	y.tab.c	1442;"	local
+yywrap	lex.yy.c	336;"	macro	file:	funlike:
+yywrap	lex.yy.c	524;"	prototype	file:
+yywrap	lex.yy.c	526;"	prototype	file:
+yyx	y.tab.c	911;"	local
+yyxbegin	y.tab.c	907;"	local
+yyxend	y.tab.c	910;"	local

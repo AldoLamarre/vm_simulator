@@ -1,5 +1,5 @@
 CC=cc
-CFLAGS=-I. -std=gnu99 -pedantic-errors -g -D_POSIX_SOURCE
+CFLAGS=-I. -std=gnu99 -pedantic-errors  -g -D_POSIX_SOURCE
 
 LEX=flex
 LEXFLAGS=
@@ -11,7 +11,7 @@ DEPS=y.tab.c lex.yy.c vmm.c common.c physical_memory.c tlb.c
 
 BUILD_DIR=../build
 
-.PHONY: default all clean format release
+.PHONY: default all clean release
 
 default: $(BUILD_DIR)/vm
 

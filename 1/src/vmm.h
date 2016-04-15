@@ -8,8 +8,9 @@
 #include "conf.h"
 #include "physical_memory.h"
 #include "tlb.h"
+#include "page.h"
 
-enum page_flags
+/*enum page_flags
 {
   verification = 0x1,
   dirty        = 0x2
@@ -19,7 +20,7 @@ struct page
 {
   uint8_t flags;
   int32_t frame_number;
-};
+};*/
 
 struct virtual_memory_manager
 {
