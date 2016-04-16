@@ -39,7 +39,8 @@ pm_find_free_frame (struct physical_memory *pm, struct page page_table[NUM_PAGES
     {
       if (page_table[i].frame_number == pm->nextFrame){//mettre la bonne condition
 		pm_backup_frame(pm,pm->nextFrame,i);
-		pm->frame_table[i].flags ^= USED;
+		pm->frame_table[page_table[i].frame_number].flags ^= USED;
+		page_table[i].frame_number = -1;
 		break;
 	  }
     }
@@ -62,10 +63,10 @@ pm_demand_page (struct physical_memory *pm, uint16_t page_number,
 	r = fseek( pm->backing_store, page_number*PAGE_FRAME_SIZE, SEEK_SET );
 	//if (r)
 	//	return -1;	
-	printf("%d\n",ftell(pm->backing_store));	
+	//printf("%d\n",ftell(pm->backing_store));	
 	r = fread( pm->memory+(free_frame*PAGE_FRAME_SIZE), sizeof(char),
 		PAGE_FRAME_SIZE, pm->backing_store);
-	printf("%d\n",ftell(pm->backing_store));
+	//printf("%d\n",ftell(pm->backing_store));
 
 	//if (r == PAGE_FRAME_SIZE )
 		return free_frame;
@@ -79,11 +80,10 @@ pm_backup_frame (struct physical_memory *pm, uint16_t frame_number,
 {	
 	
 	if(page_number < NUM_PAGES  && frame_number < NUM_FRAMES){		
-		fseek( pm->backing_store, page_number*PAGE_FRAME_SIZE, SEEK_SET );
-			printf("position : %d\n",page_number*PAGE_FRAME_SIZE);
+		fseek( pm->backing_store, page_number*PAGE_FRAME_SIZE, SEEK_SET );			
 		fwrite( pm->memory+(frame_number*PAGE_FRAME_SIZE), PAGE_FRAME_SIZE,
 			 sizeof(char) , pm->backing_store);
-			fwrite( pm->memory+(frame_number*PAGE_FRAME_SIZE) , sizeof(char), PAGE_FRAME_SIZE,stdout);
+			//fwrite( pm->memory+(frame_number*PAGE_FRAME_SIZE) , sizeof(char), PAGE_FRAME_SIZE,stdout);
 	}	
 }
 

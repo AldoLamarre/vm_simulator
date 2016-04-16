@@ -148,10 +148,10 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 	
 	unsigned int k = vmm->page_table[pagenumber].frame_number*PAGE_FRAME_SIZE+offset;
 	
-	fprintf(stdout," valeur :%d\n", k);
-	fprintf(stdout," valeur c avant :%c\n", vmm->pm.memory[k]);
+	//fprintf(stdout," valeur :%d\n", k);
+	//fprintf(stdout," valeur c avant :%c\n", vmm->pm.memory[k]);
 	vmm->pm.memory[k] = c;
-	fprintf(stdout," valeur c apres :%c\n", vmm->pm.memory[k]);
+	//fprintf(stdout," valeur c apres :%c\n", vmm->pm.memory[k]);
 	//pm_backup_frame(vmm->pm,framenumber,pagenumber);
 	
   // Vous devez fournir les arguments manquants. Basez-vous sur la signature de
