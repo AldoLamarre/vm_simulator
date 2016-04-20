@@ -13,7 +13,7 @@
 /*enum page_flags
 {
   verification = 0x1,
-  dirty        = 0x2 
+  dirty        = 0x2
 };
 
 struct page
@@ -21,8 +21,6 @@ struct page
   uint8_t flags;
   int32_t frame_number;
 };*/
-
-
 
 struct virtual_memory_manager
 {

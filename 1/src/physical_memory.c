@@ -38,7 +38,9 @@ pm_find_free_frame (struct physical_memory *pm, struct page page_table[NUM_PAGES
    for (unsigned int i = 0; i < NUM_PAGES; i++)
     {
       if (page_table[i].frame_number == pm->nextFrame){//mettre la bonne condition
-		pm_backup_frame(pm,pm->nextFrame,i);
+		if(page_table[i].flags & dirty){
+			pm_backup_frame(pm,pm->nextFrame,i);
+		}
 		pm->frame_table[page_table[i].frame_number].flags ^= USED;
 		page_table[i].frame_number = -1;
 		break;
@@ -92,8 +94,10 @@ pm_clean (struct physical_memory *pm, struct page page_table[NUM_PAGES])
 {
   
 	
-	for(int i=0;i<NUM_PAGES;i++){		
-		pm_backup_frame(pm,page_table[i].frame_number,i);	
+	for(int i=0;i<NUM_PAGES;i++){
+		if(page_table[i].flags & dirty){
+			pm_backup_frame(pm,page_table[i].frame_number,i);
+		}		
 	}
 	
   // Enregistre l'état de la mémoire physique.

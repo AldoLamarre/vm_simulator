@@ -135,7 +135,7 @@ int main(int argc, char* argv[argc+1])
     }
 
   error(opt == argc, usage, argv[0]);
-  backstore = fopen(argv[opt], "rw");
+  backstore = fopen(argv[opt], "r+");
   error(!backstore, "Could not open file `%s`\n", argv[opt]);
 
   /* Initialisation*/

@@ -45,7 +45,7 @@ tlb_lookup (struct tlb *tlb, uint16_t page_number)
   // Complétez cette fonction.
 	for(int i=0;i<TLB_NUM_ENTRIES; i++){
 		if(tlb->entries[i].page_number == page_number)
-			return tlb->entries->frame_number;
+			return tlb->entries[i].frame_number;
 	}
 	return -1;
 }

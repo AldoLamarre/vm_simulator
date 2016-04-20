@@ -3,13 +3,46 @@
 \usepackage[utf8]{inputenc}
 
 \title{Travail pratique \#3 - IFT-2245}
-\author{Moi et L'autre}
+\author{Aldo Lamarre et Frédéric Hamel }
 
 \begin{document}
 
 \maketitle
 
-allo comment ça va?
+%%allo comment ça va? plutôt bien le tp n'est pas énervant cette fois
 %% ¡¡ REMPLIR ICI !!
+
+\section*{TLB}
+Nous implémentons les algorithmes FIFO et seconde chance, car ils étaient plus 
+simple à implémenter. Seconde chance étant une amélioration de LRU qui elle 
+même est une amélioration de FIFO, c'était logique une fois FIFO implémenter 
+de faire sont amélioration en le transformant en seconde chance pour le 
+deuxième algorithme.
+\subsection{FIFO}
+\paragraph{Avantages}
+Accès rapide à la prochaine victime.
+Organisation linéaire des éléments.
+Faciliter d'implémentation. 
+
+\paragraph{Inconvénients}
+Anomalie de Belady, dans certains cas il est possible qu'augmenter les frames 
+augmentent le nombre de page faults.Dans le pire cas, il y a juste des tlb miss.
+Étant donné que la prochaine page qui pourrait être lu est toujours remplacer 
+par l'algorithme FIFO. 
+
+\subsection{CLOCK ou seconde chance}
+\paragraph{Avantages}
+Implémentation plus simple et complexifier en temps plus petite que l'algorithme de LRU.
+CLOCK est bonne approximation de LRU en utilisant moins de méta-données que LRU.
+Donne une chance au page référencée contrairement à FIFO.
+
+\paragraph{Inconvénients}
+Le pire cas de FIFO existe encore.Utilisation de méta-données explicites contrairement
+ à FIFO ou les méta-données sont implicites. 
+
+
+\section*{}
+
+\section*{}
 
 \end{document}

@@ -29,7 +29,7 @@ vmm_init (struct virtual_memory_manager *vmm,
   vmm->log = vmm_log;
 
   // Initialise la table de page.
-  for (unsigned int i=0; i < NUM_PAGES; i++)
+  for (unsigned int i; i < NUM_PAGES; i++)
     {
       vmm->page_table[i].flags = 0x0;
       vmm->page_table[i].frame_number = -1;
@@ -57,8 +57,13 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 {
 	char c;
 	int32_t framenumber;
-	uint8_t pagenumber = (uint8_t) ((laddress >> 8) & 0xff);
-	uint8_t offset = (uint8_t) (laddress & 0xff);	
+	
+	
+	uint8_t* addressData = (uint8_t*) &laddress; 	
+	uint8_t pagenumber = addressData[1];
+	uint8_t offset = addressData[0];
+	printf("pagenumber %d \n offset %d \n",pagenumber, offset); 
+	
   /* Complétez */
 	framenumber = tlb_lookup(&vmm->tlb,pagenumber);	
 	if(framenumber == -1){
@@ -66,14 +71,14 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 		framenumber = vmm->page_table[pagenumber].frame_number;
 		if(framenumber==-1){
 			vmm->page_fault_count++;
-			framenumber=pm_demand_page(&vmm->pm,pagenumber );
+			framenumber=pm_demand_page(&vmm->pm,pagenumber,vmm->page_table );
 			if(framenumber==-1){
 				//vmm->page_fault_count++;
 			}else{
 				c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset]; 
 				
 				vmm->page_table[pagenumber].frame_number=framenumber;
-				vmm->page_table[pagenumber].flags|=dirty;
+				//vmm->page_table[pagenumber].flags|=dirty;
 				tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
 				
 			}
@@ -82,7 +87,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 			c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset];
 			
 			vmm->page_table[pagenumber].frame_number=framenumber;
-			vmm->page_table[pagenumber].flags|=dirty;
+			//vmm->page_table[pagenumber].flags|=dirty;
 			tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
 			
 		}	
@@ -91,7 +96,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 		vmm->page_found_count++;
 		
 		vmm->page_table[pagenumber].frame_number=framenumber;
-		vmm->page_table[pagenumber].flags|=dirty;
+		//vmm->page_table[pagenumber].flags|=dirty;
 				
 		
 		c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] ;
@@ -109,8 +114,10 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 
 	int32_t framenumber;
   /* Complétez */
-	uint8_t pagenumber = (uint8_t) ((laddress >> 8) & 0xff);
-	uint8_t offset = (uint8_t) (laddress & 0xff);
+	uint8_t* addressData = (uint8_t*) &laddress; 	
+	uint8_t pagenumber = addressData[1];
+	uint8_t offset = addressData[0];
+	printf("pagenumber %d \n offset %d \n",pagenumber, offset); 
   /*
 	1) try look in tlb
 		write in pagetable
@@ -127,7 +134,7 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 		framenumber = vmm->page_table[pagenumber].frame_number;
 		if(framenumber==-1){
 			vmm->page_fault_count++;
-			framenumber=pm_demand_page(&vmm->pm,pagenumber );			
+			framenumber=pm_demand_page(&vmm->pm,pagenumber,vmm->page_table);			
 			vmm->page_table[pagenumber].frame_number=framenumber;			
 		}else{			
 			vmm->page_found_count++;			
@@ -138,8 +145,13 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 		vmm->page_found_count++;	
 	}
 	vmm->page_table[pagenumber].flags|=dirty;
-	vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] = c;
 	
+	unsigned int k = vmm->page_table[pagenumber].frame_number*PAGE_FRAME_SIZE+offset;
+	
+	//fprintf(stdout," valeur :%d\n", k);
+	//fprintf(stdout," valeur c avant :%c\n", vmm->pm.memory[k]);
+	vmm->pm.memory[k] = c;
+	//fprintf(stdout," valeur c apres :%c\n", vmm->pm.memory[k]);
 	//pm_backup_frame(vmm->pm,framenumber,pagenumber);
 	
   // Vous devez fournir les arguments manquants. Basez-vous sur la signature de
@@ -153,7 +165,6 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 void
 vmm_clean (struct virtual_memory_manager *vmm)
 {
-	// Assurez vous d'enregistrer les modifications apportées au backing store!
   fprintf (stdout, "\n\n");
   fprintf (stdout, "tlb hits:   %d\n", vmm->tlb_hit_count);
   fprintf (stdout, "tlb miss:   %d\n", vmm->tlb_miss_count);
@@ -183,5 +194,5 @@ vmm_clean (struct virtual_memory_manager *vmm)
 	}
     }
   tlb_clean (&vmm->tlb);
-  pm_clean (&vmm->pm);
+  pm_clean (&vmm->pm, vmm->page_table);
 }

@@ -78,7 +78,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 				c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset]; 
 				
 				vmm->page_table[pagenumber].frame_number=framenumber;
-				vmm->page_table[pagenumber].flags|=dirty;
+				//vmm->page_table[pagenumber].flags|=dirty;
 				tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
 				
 			}
@@ -87,7 +87,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 			c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset];
 			
 			vmm->page_table[pagenumber].frame_number=framenumber;
-			vmm->page_table[pagenumber].flags|=dirty;
+			//vmm->page_table[pagenumber].flags|=dirty;
 			tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
 			
 		}	
@@ -96,7 +96,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 		vmm->page_found_count++;
 		
 		vmm->page_table[pagenumber].frame_number=framenumber;
-		vmm->page_table[pagenumber].flags|=dirty;
+		//vmm->page_table[pagenumber].flags|=dirty;
 				
 		
 		c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset] ;

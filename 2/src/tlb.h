@@ -3,10 +3,15 @@
 
 #include "conf.h"
 
+enum tlb_flags {
+	visited = 0x1
+};
+
 struct tlb_entry
 {
   int32_t page_number;
   int32_t frame_number;
+  uint8_t flags;
 };
 
 struct tlb
