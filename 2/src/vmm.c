@@ -57,7 +57,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 {
 	char c;
 	int32_t framenumber;
-	uint16_t removed_page_number = -1 ;
+	int32_t removed_page_number = -1 ;
 	
 	uint8_t* addressData = (uint8_t*) &laddress; 	
 	uint8_t pagenumber = addressData[1];
