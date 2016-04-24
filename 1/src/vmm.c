@@ -145,12 +145,26 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 		vmm->page_found_count++;	
 	}
 	vmm->page_table[pagenumber].flags|=dirty;
-	
+	vmm->page_table[pagenumber].frame_number=framenumber;
 	unsigned int k = vmm->page_table[pagenumber].frame_number*PAGE_FRAME_SIZE+offset;
 	
 	//fprintf(stdout," valeur :%d\n", k);
 	//fprintf(stdout," valeur c avant :%c\n", vmm->pm.memory[k]);
-	vmm->pm.memory[k] = c;
+	if(k < PAGE_FRAME_SIZE*NUM_PAGES)
+		vmm->pm.memory[k] = c;
+	else {
+		printf("k: %d\npagenumber: %d\nframe_number: %d\nframenumber: %d\noffset: %d\n"
+				,k, pagenumber, vmm->page_table[pagenumber].frame_number,
+				framenumber, offset);
+		exit(1);
+		/*
+		 *
+pagenumber: 98
+frame_number: -1
+framenumber: 100
+offset: 198
+		 */
+	}
 	//fprintf(stdout," valeur c apres :%c\n", vmm->pm.memory[k]);
 	//pm_backup_frame(vmm->pm,framenumber,pagenumber);
 	
