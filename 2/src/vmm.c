@@ -142,7 +142,7 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 		removed_page_number= tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
 		if(removed_page_number > -1){
 			vmm->page_table[pagenumber].flags |= verification ;
-			vmm->page_table[removed_page_number].flags |= verification ;
+			vmm->page_table[removed_page_number].flags ^= verification ;
 		}
 	}else{
 		vmm->tlb_hit_count++;
