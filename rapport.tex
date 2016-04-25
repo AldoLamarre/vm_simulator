@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
-
+\usepackage{listings}
 \title{Travail pratique \#3 - IFT-2245}
 \author{Aldo Lamarre et Frédéric Hamel }
 
@@ -41,8 +41,194 @@ Le pire cas de FIFO existe encore.Utilisation de méta-données explicites contr
  à FIFO ou les méta-données sont implicites. 
 
 
-\section*{}
+\section*{Test défaut}
+\subsection*{Random io}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   16328
+tlb miss:   246158
+tlb hit ratio:   0.033166
+page found: 262007
+page fault: 479
+page fault ratio:   0.001825
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
 
-\section*{}
+\end{lstlisting}
+
+
+
+\subsection*{Mars attack}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   65280
+tlb miss:   256
+tlb hit ratio:   127.500000
+page found: 65280
+page fault: 256
+page fault ratio:   0.003906
+\end{lstlisting}
+
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+
+\end{lstlisting}
+
+\section*{Test Random io avec NUM_FRAMES  256}
+
+\subsection*{TLB_NUM_ENTRIES  16 }
+
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   16328
+tlb miss:   246158
+tlb hit ratio:   0.033166
+page found: 256534
+page fault: 5952
+page fault ratio:   0.022675
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   16305
+tlb miss:   246181
+tlb hit ratio:   0.033116
+page found: 256776
+page fault: 5710
+page fault ratio:   0.021754
+\end{lstlisting}
+\subsection*{TLB_NUM_ENTRIES   32}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   32783
+tlb miss:   229703
+tlb hit ratio:   0.071360
+page found: 260086
+page fault: 2400
+page fault ratio:   0.009143
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   32849
+tlb miss:   229637
+tlb hit ratio:   0.071524
+page found: 260046
+page fault: 2440
+page fault ratio:   0.009296
+
+
+\end{lstlisting}
+\subsection*{TLB_NUM_ENTRIES = 64}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   65647
+tlb miss:   196839
+tlb hit ratio:   0.166753
+page found: 261402
+page fault: 1084
+page fault ratio:   0.004130
+
+
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   65553
+tlb miss:   196933
+tlb hit ratio:   0.166435
+page found: 261509
+page fault: 977
+page fault ratio:   0.003722
+
+
+\end{lstlisting}
+
+\subsection*{tbl 256 et frame 256}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   262230
+tlb miss:   256
+tlb hit ratio:   512.167969
+page found: 262230
+page fault: 256
+page fault ratio:   0.000975
+
+
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   262230
+tlb miss:   256
+tlb hit ratio:   512.167969
+page found: 262230
+page fault: 256
+page fault ratio:   0.000975
+
+
+\end{lstlisting}
+\section*{Test Random io avec NUM_FRAMES   64}
+\subsection*{TLB_NUM_ENTRIES   16 }
+
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   16328
+tlb miss:   246158
+tlb hit ratio:   0.033166
+page found: 210480
+page fault: 52006
+page fault ratio:   0.198129
+
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   16305
+tlb miss:   246181
+tlb hit ratio:   0.033116
+page found: 215993
+page fault: 46493
+page fault ratio:   0.177126
+
+\end{lstlisting}
+\subsection*{TLB_NUM_ENTRIES   32}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   32849
+tlb miss:   229637
+tlb hit ratio:   0.071524
+page found: 248648
+page fault: 13838
+page fault ratio:   0.052719
+
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   32783
+tlb miss:   229703
+tlb hit ratio:   0.071360
+page found: 244586
+page fault: 17900
+page fault ratio:   0.068194
+
+\end{lstlisting}
+\subsection*{TLB_NUM_ENTRIES   64}
+\paragraph{FIFO}
+\begin{lstlisting}
+tlb hits:   65647
+tlb miss:   196839
+tlb hit ratio:   0.166753
+page found: 259039
+page fault: 3447
+page fault ratio:   0.013132
+
+\end{lstlisting}
+\paragraph{Seconde Chance}
+\begin{lstlisting}
+tlb hits:   65553
+tlb miss:   196933
+tlb hit ratio:   0.166435
+page found: 259194
+page fault: 3292
+page fault ratio:   0.012542
+
+\end{lstlisting}
 
 \end{document}
