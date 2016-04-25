@@ -25,9 +25,9 @@ pm_init (struct physical_memory *pm, FILE * backing_store, FILE * pm_log)
 uint16_t
 pm_find_free_frame (struct physical_memory *pm, struct page page_table[NUM_PAGES] )
 {
-  for (uint16_t i = pm->nextFrame; i < NUM_FRAMES; i++)
+  for (uint16_t i = 0; i < NUM_FRAMES; i++)
     {
-      if (pm->frame_table[i].flags & USED ==0){//mettre la bonne condition
+      if (!(pm->frame_table[i].flags & USED)){//mettre la bonne condition
 		pm->frame_table[i].flags |= USED;
 		return i;
 	  }
@@ -44,7 +44,7 @@ pm_find_free_frame (struct physical_memory *pm, struct page page_table[NUM_PAGES
 			if(page_table[i].flags & dirty){
 				pm_backup_frame(pm,pm->nextFrame,i);
 			}
-			pm->frame_table[page_table[i].frame_number].flags ^= USED;
+			pm->frame_table[page_table[i].frame_number].flags |= USED;
 			page_table[i].frame_number = -1;
 			break;
 		}

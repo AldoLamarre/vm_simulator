@@ -85,10 +85,10 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 			//vmm->page_table[pagenumber].frame_number=framenumber;
 			//vmm->page_table[pagenumber].flags|=dirty;			
 		}
-		removed_page_number = tlb_add_entry(&vmm->tlb,pagenumber,framenumber);			
-		if(removed_page_number > -1){
-			vmm->page_table[pagenumber].flags |= verification ;
-			vmm->page_table[removed_page_number].flags ^= verification ;
+		removed_page_number = tlb_add_entry(&vmm->tlb,pagenumber,framenumber);	
+		vmm->page_table[pagenumber].flags |= verification ;
+		if(removed_page_number > -1){			
+			vmm->page_table[removed_page_number].flags &= ~verification ;
 		}
 	}else{
 		vmm->tlb_hit_count++;
@@ -140,9 +140,9 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 			vmm->page_found_count++;			
 		}		
 		removed_page_number= tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
-		if(removed_page_number > -1){
-			vmm->page_table[pagenumber].flags |= verification ;
-			vmm->page_table[removed_page_number].flags ^= verification ;
+		vmm->page_table[pagenumber].flags |= verification ;
+		if(removed_page_number > -1){			
+			vmm->page_table[removed_page_number].flags &= ~verification ;
 		}
 	}else{
 		vmm->tlb_hit_count++;
