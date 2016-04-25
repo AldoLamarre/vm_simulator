@@ -37,13 +37,17 @@ pm_find_free_frame (struct physical_memory *pm, struct page page_table[NUM_PAGES
   
    for (unsigned int i = 0; i < NUM_PAGES; i++)
     {
-      if (page_table[i].frame_number == pm->nextFrame){//mettre la bonne condition
-		if(page_table[i].flags & dirty){
-			pm_backup_frame(pm,pm->nextFrame,i);
+      if (page_table[i].frame_number == pm->nextFrame ){//mettre la bonne condition
+		if(page_table[i].flags & verification) {///"
+			pm->nextFrame = (pm->nextFrame + 1) % NUM_FRAMES ; 
+		}else{			
+			if(page_table[i].flags & dirty){
+				pm_backup_frame(pm,pm->nextFrame,i);
+			}
+			pm->frame_table[page_table[i].frame_number].flags ^= USED;
+			page_table[i].frame_number = -1;
+			break;
 		}
-		pm->frame_table[page_table[i].frame_number].flags ^= USED;
-		page_table[i].frame_number = -1;
-		break;
 	  }
     }
   

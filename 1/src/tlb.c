@@ -53,15 +53,17 @@ tlb_lookup (struct tlb *tlb, uint16_t page_number)
 // Ajoute une entré dans le tlb. Pour bien mettre en oeuvre
 // cette fonction, il est nécessaire d'avoir un algorithme
 // de remplacement pour bien gérer un tlb plein.
-void
+int32_t
 tlb_add_entry (struct tlb *tlb, uint16_t page_number, uint16_t frame_number)
 {
-  // Complétez cette fonction.
-  struct tlb_entry *currentEntry = tlb->entries+tlb->next_entry_available;
+  // Complétez cette fonction. 
+  int32_t removed_page_number = -1;
   
-  currentEntry->page_number = page_number;
-  currentEntry->frame_number = frame_number;
+  removed_page_number =  tlb->entries[tlb->next_entry_available].page_number;
+  
+  tlb->entries[tlb->next_entry_available].page_number = page_number;
+  tlb->entries[tlb->next_entry_available].frame_number = frame_number;
   
   tlb->next_entry_available = (tlb->next_entry_available + 1) % 16;
-  
+  return removed_page_number;
 }

@@ -19,6 +19,6 @@ struct tlb
 void tlb_init(struct tlb*, FILE*);
 void tlb_clean(struct tlb*);
 int32_t tlb_lookup(struct tlb*, uint16_t);
-void tlb_add_entry(struct tlb*, uint16_t, uint16_t);
+int32_t tlb_add_entry(struct tlb*, uint16_t, uint16_t);
 
 #endif

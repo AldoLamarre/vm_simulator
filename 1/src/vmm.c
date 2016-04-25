@@ -57,7 +57,7 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 {
 	char c;
 	int32_t framenumber;
-	
+	int32_t removed_page_number = -1 ;
 	
 	uint8_t* addressData = (uint8_t*) &laddress; 	
 	uint8_t pagenumber = addressData[1];
@@ -75,27 +75,26 @@ vmm_read (struct virtual_memory_manager *vmm, uint16_t laddress)
 			if(framenumber==-1){
 				//vmm->page_fault_count++;
 			}else{
-				c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset]; 
-				
+				c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset]; 				
 				vmm->page_table[pagenumber].frame_number=framenumber;
-				//vmm->page_table[pagenumber].flags|=dirty;
-				tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
-				
+				//vmm->page_table[pagenumber].flags|=dirty;			
 			}
 		}else{			
 			vmm->page_found_count++;
-			c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset];
-			
-			vmm->page_table[pagenumber].frame_number=framenumber;
-			//vmm->page_table[pagenumber].flags|=dirty;
-			tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
-			
-		}	
+			c = vmm->pm.memory[framenumber*PAGE_FRAME_SIZE+offset];			
+			//vmm->page_table[pagenumber].frame_number=framenumber;
+			//vmm->page_table[pagenumber].flags|=dirty;			
+		}
+		removed_page_number = tlb_add_entry(&vmm->tlb,pagenumber,framenumber);			
+		if(removed_page_number > -1){
+			vmm->page_table[pagenumber].flags |= verification ;
+			vmm->page_table[removed_page_number].flags ^= verification ;
+		}
 	}else{
 		vmm->tlb_hit_count++;
 		vmm->page_found_count++;
 		
-		vmm->page_table[pagenumber].frame_number=framenumber;
+		//vmm->page_table[pagenumber].frame_number=framenumber;
 		//vmm->page_table[pagenumber].flags|=dirty;
 				
 		
@@ -113,6 +112,7 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 {
 
 	int32_t framenumber;
+	int32_t removed_page_number = -2;
   /* Complétez */
 	uint8_t* addressData = (uint8_t*) &laddress; 	
 	uint8_t pagenumber = addressData[1];
@@ -139,13 +139,17 @@ vmm_write (struct virtual_memory_manager *vmm, uint16_t laddress, char c)
 		}else{			
 			vmm->page_found_count++;			
 		}		
-		tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
+		removed_page_number= tlb_add_entry(&vmm->tlb,pagenumber,framenumber);
+		if(removed_page_number > -1){
+			vmm->page_table[pagenumber].flags |= verification ;
+			vmm->page_table[removed_page_number].flags |= verification ;
+		}
 	}else{
 		vmm->tlb_hit_count++;
 		vmm->page_found_count++;	
 	}
 	vmm->page_table[pagenumber].flags|=dirty;
-	vmm->page_table[pagenumber].frame_number=framenumber;
+	//vmm->page_table[pagenumber].frame_number=framenumber;
 	unsigned int k = vmm->page_table[pagenumber].frame_number*PAGE_FRAME_SIZE+offset;
 	
 	//fprintf(stdout," valeur :%d\n", k);
