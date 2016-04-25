@@ -68,7 +68,7 @@ tlb_add_entry (struct tlb *tlb, uint16_t page_number, uint16_t frame_number)
 	int32_t removed_page_number = -1;
   	while(tlb->entries[tlb->next_entry_available].flags & visited ){
 		tlb->entries[tlb->next_entry_available].flags = 0x0;
-		tlb->next_entry_available = (tlb->next_entry_available + 1) % 16;
+		tlb->next_entry_available = (tlb->next_entry_available + 1) % TLB_NUM_ENTRIES;
 		
 	}
 	removed_page_number = tlb->entries[tlb->next_entry_available].page_number; 
