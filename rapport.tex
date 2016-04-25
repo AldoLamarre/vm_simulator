@@ -1,7 +1,9 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage[letterpaper, margin=1.2in]{geometry}
 \usepackage{listings}
+
 \title{Travail pratique \#3 - IFT-2245}
 \author{Aldo Lamarre et Frédéric Hamel }
 
@@ -9,7 +11,7 @@
 
 \maketitle
 
-%%allo comment ça va? plutôt bien le tp n'est pas énervant cette fois
+%%allo comment ça va? Plutôt bien le tp n'est pas énervant cette fois
 %% ¡¡ REMPLIR ICI !!
 
 \section*{TLB}
@@ -18,6 +20,7 @@ simple à implémenter. Seconde chance étant une amélioration de LRU qui elle
 même est une amélioration de FIFO, c'était logique une fois FIFO implémenter 
 de faire sont amélioration en le transformant en seconde chance pour le 
 deuxième algorithme.
+
 \subsection{FIFO}
 \paragraph{Avantages}
 Accès rapide à la prochaine victime.
@@ -25,21 +28,20 @@ Organisation linéaire des éléments.
 Faciliter d'implémentation. 
 
 \paragraph{Inconvénients}
-Anomalie de Belady, dans certains cas il est possible qu'augmenter les frames 
-augmentent le nombre de page faults.Dans le pire cas, il y a juste des tlb miss.
+Anomalie de Belady, dans certains cas il est possible qu'augmenter le nombre de frames 
+augmente le nombre de page faults. Dans le pire cas, il y a juste des tlb miss.
 Étant donné que la prochaine page qui pourrait être lu est toujours remplacer 
 par l'algorithme FIFO. 
 
 \subsection{CLOCK ou seconde chance}
 \paragraph{Avantages}
-Implémentation plus simple et complexifier en temps plus petite que l'algorithme de LRU.
-CLOCK est bonne approximation de LRU en utilisant moins de méta-données que LRU.
+Implémentation plus simple et complexité en temps plus petite que l'algorithme de LRU.
+CLOCK est bonne approximation de LRU étant donnée qu'il utilise moins de méta-données que LRU.
 Donne une chance au page référencée contrairement à FIFO.
 
 \paragraph{Inconvénients}
-Le pire cas de FIFO existe encore.Utilisation de méta-données explicites contrairement
- à FIFO ou les méta-données sont implicites. 
-
+Le pire cas de FIFO existe encore. Utilisation de méta-données explicites contrairement
+à FIFO ou les méta-données sont implicites. 
 
 \section*{Test défaut}
 \subsection*{Random io}
@@ -48,18 +50,28 @@ Le pire cas de FIFO existe encore.Utilisation de méta-données explicites contr
 tlb hits:   16328
 tlb miss:   246158
 tlb hit ratio:   0.033166
-page found: 262007
-page fault: 479
-page fault ratio:   0.001825
+page found: 256534
+page fault: 5952
+page fault ratio:   0.022675
 \end{lstlisting}
+
 \paragraph{Seconde Chance}
 \begin{lstlisting}
-
+tlb hits:   16305
+tlb miss:   246181
+tlb hit ratio:   0.033116
+page found: 256776
+page fault: 5710
+page fault ratio:   0.021754
 \end{lstlisting}
+\paragraph{Comparaison}
+Il y a plus de tlb ir dans le premier, mais plus de page found dans le second.
+Cela s'explique par le fait que l'algorithme de remplacement de page utilise dans
+les deux cas utilise les données contenues dans le TLB. Même s'il y a légèrement moins
+de tlb hits dans le cas de second chance (CLOCK), le nombre de page faults a diminué de façon
+significative étant donnée que les pages visitées ne sont pas remis immédiatement évincée.
 
-
-
-\subsection*{Mars attack}
+\subsection*{Écriture en série (Mars attack)}
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   65280
@@ -72,13 +84,19 @@ page fault ratio:   0.003906
 
 \paragraph{Seconde Chance}
 \begin{lstlisting}
-
+tlb hits:   65280
+tlb miss:   256
+tlb hit ratio:   127.500000
+page found: 65280
+page fault: 256
+page fault ratio:   0.003906
 \end{lstlisting}
+\paragraph{Comparaison}
+Dans ce cas précis, l'algorithme CLOCK se comporte exactement comme FIFO.
+C'est le pire cas de CLOCK.
 
-\section*{Test Random io avec NUM_FRAMES  256}
-
-\subsection*{TLB_NUM_ENTRIES  16 }
-
+\section*{Test Random io avec NUM\_FRAMES = 128}
+\subsection*{TLB\_NUM\_ENTRIES = 16 }
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   16328
@@ -97,7 +115,8 @@ page found: 256776
 page fault: 5710
 page fault ratio:   0.021754
 \end{lstlisting}
-\subsection*{TLB_NUM_ENTRIES   32}
+
+\subsection*{TLB\_NUM\_ENTRIES = 32}
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   32783
@@ -118,7 +137,7 @@ page fault ratio:   0.009296
 
 
 \end{lstlisting}
-\subsection*{TLB_NUM_ENTRIES = 64}
+\subsection*{TLB\_NUM\_ENTRIES = 64}
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   65647
@@ -138,11 +157,15 @@ tlb hit ratio:   0.166435
 page found: 261509
 page fault: 977
 page fault ratio:   0.003722
-
-
 \end{lstlisting}
 
-\subsection*{tbl 256 et frame 256}
+\paragraph{Comparaison}
+Nous remarquons qu'augmenter le nombre d'entrées du TLB augmente le nombre de hits.
+Ce teste ne montre pas les symptômes de l'anomalie de Belady. Le nombre de page fault
+diminue inversement proportionnellement au nombre d'entrées dans le TLB. Bref, plus le
+TLB a d'entrée moins il y a de page fault.
+
+\subsection*{tbl = 256 et frame = 256}
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   262230
@@ -151,9 +174,8 @@ tlb hit ratio:   512.167969
 page found: 262230
 page fault: 256
 page fault ratio:   0.000975
-
-
 \end{lstlisting}
+
 \paragraph{Seconde Chance}
 \begin{lstlisting}
 tlb hits:   262230
@@ -162,11 +184,13 @@ tlb hit ratio:   512.167969
 page found: 262230
 page fault: 256
 page fault ratio:   0.000975
-
-
 \end{lstlisting}
-\section*{Test Random io avec NUM_FRAMES   64}
-\subsection*{TLB_NUM_ENTRIES   16 }
+\paragraph{Comparaison}
+Dans le cas ou la taille du TLB est équivalente au nombre de frames,
+on remarque un équivalence direct entre les deux algorithme.
+
+\section*{Test Random io avec NUM\_FRAMES = 64}
+\subsection*{TLB\_NUM\_ENTRIES = 16 }
 
 \paragraph{FIFO}
 \begin{lstlisting}
@@ -176,8 +200,8 @@ tlb hit ratio:   0.033166
 page found: 210480
 page fault: 52006
 page fault ratio:   0.198129
-
 \end{lstlisting}
+
 \paragraph{Seconde Chance}
 \begin{lstlisting}
 tlb hits:   16305
@@ -186,9 +210,9 @@ tlb hit ratio:   0.033116
 page found: 215993
 page fault: 46493
 page fault ratio:   0.177126
-
 \end{lstlisting}
-\subsection*{TLB_NUM_ENTRIES   32}
+
+\subsection*{TLB\_NUM\_ENTRIES = 32}
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   32849
@@ -197,8 +221,8 @@ tlb hit ratio:   0.071524
 page found: 248648
 page fault: 13838
 page fault ratio:   0.052719
-
 \end{lstlisting}
+
 \paragraph{Seconde Chance}
 \begin{lstlisting}
 tlb hits:   32783
@@ -207,9 +231,9 @@ tlb hit ratio:   0.071360
 page found: 244586
 page fault: 17900
 page fault ratio:   0.068194
-
 \end{lstlisting}
-\subsection*{TLB_NUM_ENTRIES   64}
+
+\subsection*{TLB\_NUM\_ENTRIES = 64}
 \paragraph{FIFO}
 \begin{lstlisting}
 tlb hits:   65647
@@ -218,8 +242,8 @@ tlb hit ratio:   0.166753
 page found: 259039
 page fault: 3447
 page fault ratio:   0.013132
-
 \end{lstlisting}
+
 \paragraph{Seconde Chance}
 \begin{lstlisting}
 tlb hits:   65553
@@ -228,7 +252,55 @@ tlb hit ratio:   0.166435
 page found: 259194
 page fault: 3292
 page fault ratio:   0.012542
+\end{lstlisting}
+\paragraph{Comparaison}
+Il y a une augmentation du nombre de page faults plus on diminue le nombre de frame.
+Cela montre la différence du nombre de page faults des 2 algorithme FIFO et CLOCK.
+Le ratio de tlb hit a aussi augmenter avec la taille du TLB. Le nombre de page fult diminue
+avec la taille du TLB. 
 
+\section*{Comparaison des algorithme avec NUM\_FRAMES = NUM\_PAGES = 256}
+\subsection*{FIFO}
+\begin{lstlisting}
+tlb size:   16
+tlb hits:   16328
+tlb miss:   246158
+tlb hit ratio:   0.033166
+page found: 262230
+page fault: 256
+page fault ratio:   0.000975
+\end{lstlisting}
+\begin{lstlisting}
+tlb size:   32
+tlb hits:   32783
+tlb miss:   229703
+tlb hit ratio:   0.071360
+page found: 262230
+page fault: 256
+page fault ratio:   0.000975
 \end{lstlisting}
 
+\subsection*{Second chance CLOCK}
+\begin{lstlisting}
+tlb size:   16
+tlb hits:   16305
+tlb miss:   246181
+tlb hit ratio:   0.033116
+page found: 262230
+page fault: 256
+page fault ratio:   0.000975
+\end{lstlisting}
+\begin{lstlisting}
+tlb size:   32
+tlb hits:   32849
+tlb miss:   229637
+tlb hit ratio:   0.071524
+page found: 262230
+page fault: 256
+page fault ratio:   0.000975
+\end{lstlisting}
+\paragraph{Comparaison}
+Seconde chance se retrouve en dessous de FIFO dans le cas ou le TLB est de 16 entrées.
+Par contre, seconde chance(CLOCK) est au dessus de FIFO avec une taille TLB de 32.
+Bref, c'est deux algorithme on beaucoup des similarités.
 \end{document}
